@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="j5Y-OL-GPD">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="HFX-pu-dq4">
+            <objects>
+                <navigationController id="j5Y-OL-GPD" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v4f-Kd-OCw" customClass="FUINavigationBar" customModule="SAPFiori">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kRa-iu-CsG" kind="relationship" relationship="rootViewController" id="1Sg-CT-UxU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wwm-8L-REM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="58"/>
+        </scene>
+        <!--Shop-->
+        <scene sceneID="IRp-QF-t1o">
+            <objects>
+                <viewController id="kRa-iu-CsG" customClass="ProductListViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tue-Qi-KQA"/>
+                        <viewControllerLayoutGuide type="bottom" id="lfE-Z7-Pcd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c6a-wh-s1l">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qE8-uN-rWP">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCellID" id="auI-do-NLJ" customClass="FUIObjectTableViewCell" customModule="SAPFiori">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="auI-do-NLJ" id="WIL-fM-DZc">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ng5-w6-bsO" kind="show" identifier="showProductDetailSegue" id="uk4-T3-MKn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kRa-iu-CsG" id="FmW-kg-BRU"/>
+                                    <outlet property="delegate" destination="kRa-iu-CsG" id="4SY-w3-zDk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qE8-uN-rWP" firstAttribute="leading" secondItem="c6a-wh-s1l" secondAttribute="leading" id="FMy-pt-MuH"/>
+                            <constraint firstItem="qE8-uN-rWP" firstAttribute="top" secondItem="tue-Qi-KQA" secondAttribute="bottom" id="S8Q-xb-7x7"/>
+                            <constraint firstItem="lfE-Z7-Pcd" firstAttribute="top" secondItem="qE8-uN-rWP" secondAttribute="bottom" id="f3D-YP-18I"/>
+                            <constraint firstAttribute="trailing" secondItem="qE8-uN-rWP" secondAttribute="trailing" id="fYq-y2-mjM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Shop" id="cAy-xE-B5A">
+                        <barButtonItem key="rightBarButtonItem" id="EXz-D7-3hO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RX0-7z-jgc" customClass="ShoppingCartButton" customModule="Shop" customModuleProvider="target">
+                                <rect key="frame" x="964" y="4" width="40" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="qE8-uN-rWP" id="TN4-fW-5na"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvE-ov-mpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821" y="58"/>
+        </scene>
+        <!--Product-->
+        <scene sceneID="PbC-Yt-FxC">
+            <objects>
+                <viewController title="Product" id="ng5-w6-bsO" customClass="DetailViewController" customModule="Shop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vHX-Sv-u4a"/>
+                        <viewControllerLayoutGuide type="bottom" id="3lB-nN-vUY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HPv-iW-Zok" customClass="ProductDetailView" customModule="Shop" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Product" id="ded-DI-Dtt">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xZS-eB-qj9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DoP-ll-NhA" customClass="ShoppingCartButton" customModule="Shop" customModuleProvider="target">
+                                <rect key="frame" x="964" y="4" width="40" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
+                    <connections>
+                        <outlet property="productView" destination="HPv-iW-Zok" id="CHZ-Ug-gTe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVV-m9-SpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461" y="58"/>
+        </scene>
+    </scenes>
+</document>
